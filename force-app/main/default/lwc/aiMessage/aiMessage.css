@@ -1,0 +1,41 @@
+.ai-message-card {
+
+    padding: 12px;
+    align-self: flex-start;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #f4f6f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    margin-right: 15%;
+}
+
+.ai-message-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.ai-user-message {
+    background-color: #e3fcef;
+}
+
+
+.speaker-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #4b4b4b;
+    transition: color 0.2s;
+}
+
+.speaker-icon:hover {
+    color: #1b5299;
+}
+
+.ai-message-text {
+    white-space: pre-wrap;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}

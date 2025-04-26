@@ -1,0 +1,26 @@
+<template>
+    <div class="ai-message-card slds-p-around_medium align-left">
+        <div class="ai-message-header slds-text-title_caps slds-m-bottom_small slds-grid slds-grid_align-spread">
+
+            <!-- LEFT: LLM name and timestamp -->
+            <div class="slds-grid slds-align-center slds-text-color_weak">
+                <lightning-icon class="slds-m-right_xx-small" icon-name="utility:magicwand" size="x-small"
+                    variant="success"></lightning-icon>
+                <span class="slds-m-right_x-small"><strong>{llm}</strong></span>
+                <span class="slds-text-body_small">• {formattedTimestamp}</span>
+            </div>
+
+            <!-- RIGHT: Volume icon -->
+            <div class="slds-align-middle">
+                <button class="speaker-icon slds-button slds-button_icon" onclick={speakMessage} title="Read message">
+                    <lightning-icon icon-name="utility:volume_high" size="x-small"></lightning-icon>
+                </button>
+            </div>
+        </div>
+
+        <!-- Message Body -->
+        <div class="ai-message-body">
+            <div class="ai-message-text slds-text-body_regular">{message}</div>
+        </div>
+    </div>
+</template>

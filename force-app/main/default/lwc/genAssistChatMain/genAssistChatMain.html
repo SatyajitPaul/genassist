@@ -1,0 +1,17 @@
+<template>
+    <div class="chat-wrapper slds-p-around_medium">
+        <div class="message-container" id="messageContainer">
+            <template for:each={messages} for:item="message">
+                <template if:true={message.isAi}>
+                    <c-ai-message key={message.id} message={message.message} llm={message.llm}
+                        timestamp={message.timestamp}></c-ai-message>
+                </template>
+                <template if:false={message.isAi}>
+                    <c-user-message key={message.id} message={message.message} llm={message.llm}
+                        timestamp={message.timestamp}></c-user-message>
+                </template>
+            </template>
+        </div>
+        <c-chat-footer></c-chat-footer>
+    </div>
+</template>

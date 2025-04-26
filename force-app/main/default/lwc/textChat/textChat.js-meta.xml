@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Text Chat</masterLabel>
+    <description>A reusable text chat input component with attachment, mute and send functionality.</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__HomePage">
+            <property name="placeholderText" type="String" default="Start typing" label="Placeholder Text" description="Text displayed in the input field when empty" />
+            <property name="maxAttachmentSize" type="Integer" default="5" label="Max Attachment Size (MB)" description="Maximum allowed file size for attachments in MB" />
+            <property name="showMuteButton" type="Boolean" default="true" label="Show Mute Button" description="Show or hide the mute button" />
+            <property name="sendLabel" type="String" default="Send Message" label="Send Button Label" description="Label for the send button" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

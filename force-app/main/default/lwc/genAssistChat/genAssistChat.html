@@ -1,0 +1,90 @@
+<template>
+    <lightning-card title={cardTitle} icon-name="utility:chat">
+        <div class="chat-container">
+            <!-- Chat Window-->
+            <div class="chat-window">
+                <template for:each={decoratedConversationHistory} for:item="msg">
+                    <div key={msg.Id} class={msg.cssClass}>
+                        <div class="message-content">
+                            <div class="sender-avatar">
+                                <lightning-icon icon-name={msg.iconName} size="small"></lightning-icon>
+                            </div>
+                            <div class="message-text">
+                                <div class="sender-name">{msg.Sender__c}</div>
+                                <div class="message-body">{msg.Message__c}</div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <template if:true={isLoading}>
+                    <div class="loading-indicator">
+                        <div class="typing-indicator">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <!-- Footer -->
+            <div class="chat-footer">
+                <div class="footer-row">
+                    <!-- Toggle Switch for Action/Prompt -->
+                    <!-- <div class="toggle-mode">
+                        <lightning-input type="toggle" label="Prompt Mode" checked={isPromptMode}
+                            onchange={handleToggleMode}></lightning-input>
+                        <span class="toggle-label">{modeText}</span>
+                    </div> -->
+                    <div class="mode-selector">
+                        <lightning-button-group>
+                            <lightning-button variant={actionButtonVariant} label="Action" onclick={switchToActionMode}
+                                class="action-button"></lightning-button>
+                            <lightning-button variant={promptButtonVariant} label="Prompt" onclick={switchToPromptMode}
+                                class="prompt-button"></lightning-button>
+                        </lightning-button-group>
+                    </div>
+                    <!-- Provider Selector -->
+                    <div class="provider-selector">
+                        <lightning-combobox name="provider" label="LLM Provider" value={selectedProvider}
+                            options={providerOptions} onchange={handleProviderChange} variant="label-hidden"
+                            dropdown-alignment="bottom-left" class="provider-dropdown">
+                        </lightning-combobox>
+                    </div>
+                </div>
+
+                <div class="footer-row">
+                    <!-- If in Prompt Mode, show dropdown, else textarea -->
+                    <template if:true={isPromptMode}>
+                        <div class="prompt-selector">
+                            <lightning-combobox name="prompt" label="Prompt" value={selectedPrompt}
+                                dropdown-alignment="bottom-left" variant="label-hidden" options={promptOptions}
+                                onchange={handlePromptChange} placeholder="Select a prompt..." class="prompt-dropdown">
+                            </lightning-combobox>
+                            <template if:true={promptWarning}>
+                                <div class="warning-message">{promptWarning}</div>
+                            </template>
+                        </div>
+                    </template>
+                    <template if:false={isPromptMode}>
+                        <lightning-textarea name="userInput" placeholder="Type your message here..." value={userInput}
+                            onchange={handleInputChange} onkeydown={handleKeyPress} variant="label-hidden"
+                            class="message-input">
+                        </lightning-textarea>
+                        <lightning-button-icon icon-name="utility:unmuted" variant="brand" onclick={startVoiceInput}
+                            class="send-button" title="Send message">
+                        </lightning-button-icon>
+                    </template>
+                    <lightning-button-icon icon-name="utility:send" variant="brand" onclick={handleSend}
+                        disabled={disableSend} class="send-button" title="Send message">
+                    </lightning-button-icon>
+                </div>
+            </div>
+        </div>
+
+        <template if:true={error}>
+            <div class="error-container">
+                <p class="error-message">{error}</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

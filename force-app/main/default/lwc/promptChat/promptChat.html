@@ -1,0 +1,16 @@
+<template>
+    <div class="text-chat-container">
+        <div class="input-container">
+            <div class="text-area-container">
+                <lightning-combobox name="metadataSelector" dropdown-alignment="bottom-left" label="Select Prompt"
+                    value={selectedValue} options={metadataOptions} onchange={handleChange} class="slds-m-right_small"
+                    variant="label-hidden">
+                </lightning-combobox>
+            </div>
+
+
+            <lightning-button-icon icon-name="utility:send" alternative-text="Send" onclick={handleSend}
+                variant="border-filled"></lightning-button-icon>
+        </div>
+    </div>
+</template>

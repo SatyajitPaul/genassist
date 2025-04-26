@@ -1,0 +1,20 @@
+<template>
+    <!--Footer Option-->
+    <div class="text-chat-container">
+        <div class="input-container">
+            <lightning-button-group class="button-group left">
+                <lightning-button variant={promptVariant} label="Prompt" onclick={handlePromptClick}></lightning-button>
+                <lightning-button variant={chatVariant} label="Chat" onclick={handleChatClick}></lightning-button>
+            </lightning-button-group>
+            <div class="text-area-container"></div>
+            <c-llm-selector class="button-group right"></c-llm-selector>
+        </div>
+    </div>
+    <template if:true={isPrompt}>
+        <c-prompt-chat></c-prompt-chat>
+    </template>
+    <template if:false={isPrompt}>
+        <c-text-chat></c-text-chat>
+    </template>
+
+</template>

@@ -1,0 +1,24 @@
+<template>
+    <div class="text-chat-container">
+        <div class="input-container">
+            <div class="button-group left">
+                <lightning-button-icon icon-name="utility:attach" alternative-text="Attach Files" title="Attach Files"
+                    class="attachment-button" onclick={handleAttachmentClick}>
+                </lightning-button-icon>
+            </div>
+            <div class="text-area-container">
+                <lightning-input name="chat-message" placeholder="Start typing" label="Chat Message"
+                    variant="label-hidden" value={messageText} onchange={handleMessageChange} onkeyup={handleKeyUp}>
+                </lightning-input>
+            </div>
+            <div class="button-group right">
+                <lightning-button-icon icon-name={muteButtonIcon} alternative-text={muteButtonLabel}
+                    variant={listeningVariant} title={muteButtonLabel} class="mute-button" onclick={startVoiceInput}>
+                </lightning-button-icon>
+                <lightning-button-icon icon-name="utility:send" alternative-text="Send Message" title="Send Message"
+                    class="send-button" disabled={isMessageEmpty} onclick={handleSendMessage} variant="brand">
+                </lightning-button-icon>
+            </div>
+        </div>
+    </div>
+</template>

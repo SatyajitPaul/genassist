@@ -1,0 +1,32 @@
+<template>
+    <div class="gen-assist-container">
+        <div class="chat-container">
+            <div class="chat-messages" lwc:dom="manual"></div>
+
+            <div if:true={isThinking} class="thinking-indicator">
+                <lightning-spinner alternative-text="Thinking..." size="small"></lightning-spinner>
+                <span>Thinking...</span>
+            </div>
+
+            <div class="chat-input">
+                <lightning-input type="text" label="Ask Gen Assist" variant="label-hidden"
+                    placeholder="Type your request here..." value={userInput} onchange={handleInputChange}
+                    onkeypress={handleKeyPress}>
+                </lightning-input>
+                <lightning-button-icon icon-name="utility:send" variant="brand" alternative-text="Send"
+                    disabled={isInputEmpty} onclick={handleSendMessage}>
+                </lightning-button-icon>
+            </div>
+        </div>
+
+        <div if:true={showResults} class="results-container">
+            <div class="results-header">
+                <h3>Results</h3>
+                <lightning-button-icon icon-name="utility:close" variant="bare" alternative-text="Close"
+                    onclick={closeResults}>
+                </lightning-button-icon>
+            </div>
+            <div class="results-content" lwc:dom="manual"></div>
+        </div>
+    </div>
+</template>

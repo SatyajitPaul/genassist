@@ -1,0 +1,17 @@
+<template>
+    <div class="user-message-card slds-p-around_medium align-right">
+        <div
+            class="user-message-header slds-text-title_caps slds-m-bottom_small slds-grid slds-grid_align-spread align-right">
+            <!-- LEFT: LLM name and timestamp -->
+            <div class="slds-grid slds-align-center slds-text-color_weak">
+                <span class="slds-m-right_x-small">{formattedTimestamp}</span>
+                <span class="slds-text-body_small"><strong> - {llm}</strong></span>
+            </div>
+        </div>
+
+        <!-- Message Body -->
+        <div class="user-message-body align-right">
+            <div class="user-message-text slds-text-body_regular align-right">{message}</div>
+        </div>
+    </div>
+</template>

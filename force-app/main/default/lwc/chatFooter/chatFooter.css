@@ -1,0 +1,62 @@
+/* promptChat.css */
+.slds-combobox {
+    flex: 1;
+}
+
+.text-chat-container {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.input-container {
+    display: flex;
+    align-items: flex-end;
+    background: var(--lwc-colorBackground, #ffffff);
+    border-radius: 20px;
+    padding: 8px 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.text-area-container {
+    flex-grow: 1;
+    margin: 0 8px;
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+}
+
+.button-group.left {
+    padding-right: 4px;
+}
+
+.button-group.right {
+    padding-left: 4px;
+    gap: 8px;
+}
+
+/* Remove textarea border and adjust styling */
+.text-area-container lightning-textarea textarea {
+    border: none;
+    resize: none;
+    min-height: 38px;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+/* Focus styles */
+.text-area-container lightning-textarea textarea:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Button styling */
+/* .attachment-button, .mute-button, .send-button {
+    --sds-c-icon-color-foreground-default: #706e6b;
+}
+
+.send-button {
+    --sds-c-icon-color-foreground-default: #0070d2;
+} */
