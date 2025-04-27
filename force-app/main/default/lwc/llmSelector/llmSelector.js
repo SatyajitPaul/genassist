@@ -23,4 +23,11 @@ export default class LlmSelector extends LightningElement {
         console.log('Selected LLM:', this.selectedValue);
     }
     
+    renderedCallback(){
+        if(this.llmOptions.length > 0 && !this.selectedValue){
+            // Set the default value to the first option
+            this.template.querySelector('lightning-combobox').value = this.llmOptions[0].value;
+        }
+    }
+    
 }
