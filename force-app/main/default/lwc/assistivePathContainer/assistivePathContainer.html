@@ -1,0 +1,9 @@
+<template>
+    <template if:false={selectedRecordId}>
+        <c-assistive-path-list onviewrecord={handleViewRecord}></c-assistive-path-list>
+    </template>
+
+    <template if:true={selectedRecordId}>
+        <c-assistive-path-detail record-id={selectedRecordId} onhandleback={handleBack}></c-assistive-path-detail>
+    </template>
+</template>

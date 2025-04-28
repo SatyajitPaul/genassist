@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Record Assist" icon-name="standard:record">
+        <lightning-button-group slot="actions">
+            <lightning-button label="Assistive Analysis"></lightning-button>
+            <lightning-button label="Prompt Analysis"></lightning-button>
+        </lightning-button-group>
+        <template if:false={isPrompt}>
+            <c-assistive-path></c-assistive-path>
+        </template>
+
+    </lightning-card>
+
+</template>
